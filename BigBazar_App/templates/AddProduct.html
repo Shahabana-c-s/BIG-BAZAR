@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">ADD PRODUCT PAGE</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="post" action="{% url 'saveproductdata' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                <div class="card-body">
+                    <div class="form-group">
+                    <label for="exampleInputEmail1">Product Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" name="pname">
+                  </div>
+
+                    <div class="form-group">
+                    <label for="exampleInputEmail1">Price</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter price" name="price">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Quantity</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter quantity" name="quantity">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Description</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter desc" name="pdescription">
+                  </div>
+
+                    <div class="form-group">
+                    <label for="exampleInputFile">Product Image</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" name="pimage">
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+                    <div class="form-group form-default">
+                        <label>Category</label>
+
+                        <select name="cat"class="form-control">
+                             {% for d in data %}
+                    <option>{{ d.Name }}</option>
+                      {% endfor %}
+                        </select>
+                        <span class="form-bar"></span>
+                    </div>
+                     <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+
+
+
+<!--                  </select><span class="select2 select2-container select2-container&#45;&#45;default" dir="ltr" data-select2-id="2" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection&#45;&#45;single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-ytw5-container"><span class="select2-selection__rendered" id="select2-ytw5-container" role="textbox" aria-readonly="true" title="Alabama">Alabama</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>-->
+                </div>
+
+</body>
+</html>
+{% endblock %}
